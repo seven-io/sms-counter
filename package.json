@@ -1,0 +1,23 @@
+{
+  "author": "sms77 e.K.",
+  "description": "Counts the SMS character usage in browser as well as NodeJS environments.",
+  "devDependencies": {
+    "rollup": "^2.13.1",
+    "rollup-plugin-babel-minify": "^10.0.0",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.3",
+    "rollup-plugin-typescript2": "^0.27.1"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@sms77.io/counter",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepublishOnly": "npm run rollup",
+    "rollup": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.0"
+}
