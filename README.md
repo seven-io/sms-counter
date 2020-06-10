@@ -5,7 +5,7 @@
 ## Installation
 - For Browsers
 
-    ```<script src="https://unpkg.com/@sms77.io/counter@1.1.0/dist/index.js"></script>```
+    ```<script src="https://unpkg.com/@sms77.io/counter@1.2.0/dist/index.js"></script>```
     
 - For NodeJS
 

@@ -1,23 +1,27 @@
 {
-  "author": "sms77 e.K.",
-  "description": "Counts the SMS character usage in browser as well as NodeJS environments.",
-  "devDependencies": {
-    "rollup": "^2.15.0",
-    "rollup-plugin-babel-minify": "^10.0.0",
-    "tslib": "^2.0.0",
-    "typescript": "^3.9.5",
-    "rollup-plugin-typescript2": "^0.27.1"
-  },
-  "license": "MIT",
-  "main": "dist/index.js",
-  "name": "@sms77.io/counter",
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "prepublishOnly": "npm run rollup",
-    "rollup": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "version": "1.1.0"
+    "author": "sms77 e.K.",
+    "description": "Counts the SMS character usage in browser as well as NodeJS environments.",
+    "devDependencies": {
+        "@types/jest": "^26.0.0",
+        "jest": "^26.0.1",
+        "jest-runner-groups": "^2.0.1",
+        "rollup": "^2.15.0",
+        "rollup-plugin-babel-minify": "^10.0.0",
+        "rollup-plugin-typescript2": "^0.27.1",
+        "ts-jest": "^26.1.0",
+        "tslib": "^2.0.0",
+        "typescript": "^3.9.5"
+    },
+    "license": "MIT",
+    "main": "dist/index.js",
+    "name": "@sms77.io/counter",
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "prepublishOnly": "npm run rollup",
+        "rollup": "rollup -c",
+        "test": "npx jest"
+    },
+    "version": "1.2.0"
 }
