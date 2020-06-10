@@ -6,7 +6,9 @@ export type CharacterLimits = {
     UCS2: 70 | 67
 };
 
-export const getEncoding = (textarea: HTMLTextAreaElement): keyof CharacterLimits => {
+export type Encoding = keyof CharacterLimits;
+
+export const getEncoding = (textarea: HTMLTextAreaElement): Encoding => {
     for (const char of textarea.value.split('')) {
         if (![...ONE_BYTE_CHARS, ...TWO_BYTE_CHARS].includes(char)) {
             return 'UCS2';
@@ -16,7 +18,7 @@ export const getEncoding = (textarea: HTMLTextAreaElement): keyof CharacterLimit
     return 'GSM7';
 };
 
-export const getCharCount = (textarea: HTMLTextAreaElement, encoding: keyof CharacterLimits) => {
+export const getCharCount = (textarea: HTMLTextAreaElement, encoding: Encoding) => {
     let charCount = textarea.value.length;
 
     if ('UCS2' === encoding) {
@@ -33,7 +35,7 @@ export const getCharCount = (textarea: HTMLTextAreaElement, encoding: keyof Char
 };
 
 export const getMessageCount =
-    (charCount: number, charLimits: CharacterLimits, encoding: keyof CharacterLimits): number => {
+    (charCount: number, charLimits: CharacterLimits, encoding: Encoding): number => {
         let count = charCount / charLimits[encoding];
 
         if (1 >= count) {
@@ -47,7 +49,7 @@ export const getMessageCount =
         return count;
     };
 
-export const getCharLimits = (encoding: keyof CharacterLimits, charCount: number): CharacterLimits => {
+export const getCharLimits = (encoding: Encoding, charCount: number): CharacterLimits => {
     const limits: CharacterLimits = {
         GSM7: 160,
         UCS2: 70,
@@ -61,23 +63,24 @@ export const getCharLimits = (encoding: keyof CharacterLimits, charCount: number
     return limits;
 };
 
+export const setStyle = (textarea: HTMLTextAreaElement) => {
+    const encoding = getEncoding(textarea);
+    const charCount = getCharCount(textarea, encoding);
+    const msgCount = getMessageCount(charCount, getCharLimits(encoding, charCount), encoding);
+    const $span = textarea.nextElementSibling as HTMLSpanElement;
+
+    $span.textContent = `${charCount}/${msgCount} [${encoding}]`;
+    $span.style.left = `${textarea.offsetWidth - $span.offsetWidth}px`;
+    $span.style.top = `${textarea.offsetHeight - $span.offsetHeight}px`;
+};
+
 document.addEventListener('DOMContentLoaded', (): void =>
     (Array.from(document.querySelectorAll('textarea[data-sms77-sms]')) as HTMLTextAreaElement[])
         .forEach((textarea: HTMLTextAreaElement): void => {
-            const setStyle = () => {
-                const encoding = getEncoding(textarea);
-                const charCount = getCharCount(textarea, encoding);
-                const msgCount = getMessageCount(charCount, getCharLimits(encoding, charCount), encoding);
-                const $span = textarea.nextElementSibling as HTMLSpanElement;
+            textarea.insertAdjacentHTML('afterend',
+                '<span style="position: absolute;"></span>');
 
-                $span.textContent = `${charCount}/${msgCount} [${encoding}]`;
-                $span.style.left = `${textarea.offsetWidth - $span.offsetWidth}px`;
-                $span.style.top = `${textarea.offsetHeight - $span.offsetHeight}px`;
-            };
+            setStyle(textarea);
 
-            textarea.insertAdjacentHTML('afterend', '<span style="position: absolute;"></span>');
-
-            setStyle();
-
-            textarea.addEventListener('input', setStyle);
-        }));
+            textarea.addEventListener('input', () => setStyle(textarea));
+        }), {once: true});
