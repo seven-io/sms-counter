@@ -1,10 +1,10 @@
 import {Encoding} from '../index';
 
-const {oneByteChars, twoByteChars} = require('./chars.json');
+import {ONE_BYTE_CHARS, TWO_BYTE_CHARS} from './chars';
 
 export const getEncoding = (textarea: HTMLTextAreaElement): Encoding => {
     for (const char of textarea.value.split('')) {
-        if (![...oneByteChars, ...twoByteChars].includes(char)) {
+        if (![...TWO_BYTE_CHARS, ...ONE_BYTE_CHARS].includes(char)) {
             return 'UCS2';
         }
     }

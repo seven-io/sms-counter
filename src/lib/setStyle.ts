@@ -1,12 +1,6 @@
-import {getCharLimits} from './getCharLimits';
-import {getEncoding} from './getEncoding';
-import {getCharCount} from './getCharCount';
-import {getMessageCount} from './getMessageCount';
+import {CounterStats} from './getStats';
 
-export const setStyle = (textarea: HTMLTextAreaElement) => {
-    const encoding = getEncoding(textarea);
-    const charCount = getCharCount(textarea, encoding);
-    const msgCount = getMessageCount(charCount, getCharLimits(encoding, charCount), encoding);
+export const setStyle = (textarea: HTMLTextAreaElement, {charCount, encoding, msgCount}: CounterStats) => {
     const $span = textarea.nextElementSibling as HTMLSpanElement;
 
     $span.textContent = `${charCount}/${msgCount} [${encoding}]`;

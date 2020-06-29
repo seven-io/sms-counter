@@ -20,7 +20,8 @@
     Set the window object before loading the library.
 
     window.SMS77IO_COUNTER_OPTIONS = {
-            initEvent: string = 'DOMContentLoaded',
-            selector: string = 'textarea[data-sms77-sms]',
-            position: InsertPosition = 'afterend',
+            initEvent: string = 'DOMContentLoaded', // the DOM event for init
+            position: InsertPosition = 'afterend', // where to add the counter span
+            selector: string = 'textarea[data-sms77-sms]', // the inputs selector
+            standalone: boolean = false, // stop attaching input listeners
     }

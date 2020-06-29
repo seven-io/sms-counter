@@ -16,13 +16,19 @@ export type CounterOptions = {
     initEvent: string
     position: InsertPosition
     selector: string
+    standalone: boolean
 }
 
-listen({
+const options = {
     ...{
         initEvent: 'DOMContentLoaded',
         position: 'afterend',
         selector: 'textarea[data-sms77-sms]',
+        standalone: false,
     },
     ...((window as any).SMS77IO_COUNTER_OPTIONS || {}),
-});
+};
+
+if (!options.standalone) {
+    listen(options);
+}
