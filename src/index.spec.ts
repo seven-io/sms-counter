@@ -1,4 +1,5 @@
-import {getCharCount, getEncoding} from './index';
+import {getCharCount} from './lib/getCharCount';
+import {getEncoding} from './lib/getEncoding';
 
 const textarea = (text: string) => {
     document.body.insertAdjacentHTML(

@@ -15,3 +15,12 @@
 
 ### Usage
     <textarea data-sms77-sms></textarea>
+    
+#### Options
+    Set the window object before loading the library.
+
+    window.SMS77IO_COUNTER_OPTIONS = {
+            initEvent: string = 'DOMContentLoaded',
+            selector: string = 'textarea[data-sms77-sms]',
+            position: InsertPosition = 'afterend',
+    }

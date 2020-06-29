@@ -7,6 +7,7 @@
       "ES2016.Array.Include"
     ],
     "outDir": "dist",
+    "resolveJsonModule": true,
     "strict": true
   },
   "include": [
