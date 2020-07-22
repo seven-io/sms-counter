@@ -1,20 +1,37 @@
 import {setStyle} from './setStyle';
-import {CounterOptions} from '../index';
 import {getStats} from './getStats';
+import {CounterOptions} from './types';
 
-export const listen = ({initEvent, position, selector}: CounterOptions) =>
-    document.addEventListener(initEvent, (): void =>
-        (Array.from(document.querySelectorAll(selector)) as HTMLTextAreaElement[])
-            .forEach((textarea: HTMLTextAreaElement): void => {
-                textarea.insertAdjacentHTML(position, '<span style="position: absolute;"></span>');
+export const COUNTER_INPUT_EVENT = 'sms77io_counter_input';
 
-                setStyle(textarea, getStats(textarea));
+const onEvent = (options: CounterOptions) => {
+    const eachTextarea = (textarea: HTMLTextAreaElement): void => {
+        const onInput = () => {
+            const detail = getStats(textarea);
 
-                textarea.addEventListener('input', () => {
-                    const stats = getStats(textarea);
+            if (options.stats) {
+                setStyle(textarea, detail);
+            }
 
-                    setStyle(textarea, stats);
+            document.dispatchEvent(
+                new CustomEvent(COUNTER_INPUT_EVENT, {detail})
+            );
+        };
 
-                    document.dispatchEvent(new CustomEvent('sms77io_counter_input', {detail: stats}));
-                });
-            }), {once: true});
+        if (options.stats) {
+            textarea.insertAdjacentHTML(options.position,
+                '<span style="position: absolute;"></span>');
+
+            setStyle(textarea, getStats(textarea));
+        }
+
+        textarea.addEventListener('input', onInput);
+    };
+
+    return (Array.from(document.querySelectorAll(options.selector)) as HTMLTextAreaElement[])
+        .forEach(eachTextarea);
+};
+
+export const listen = (options: CounterOptions) =>
+    document.addEventListener(options.initEvent, (): void =>
+        onEvent(options), {once: true});

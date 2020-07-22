@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <title>SMS Counter by Sms77.io</title>
+
+    <script>
+        window.SMS77IO_COUNTER_OPTIONS = {
+            stats: false,
+        };
+
+        document.addEventListener('sms77io_counter_input', ev =>
+            Object.entries(ev.detail)
+                .forEach(([k, v]) => document.getElementById(k).textContent = v));
+    </script>
+
+    <script src='../dist/index.js'></script>
+</head>
+<body>
+<div style='display: flex;'>
+    <textarea data-sms77-sms></textarea>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Encoding</th>
+            <td id='encoding'></td>
+        </tr>
+        <tr>
+            <th>Character Count</th>
+            <td id='charCount'></td>
+        </tr>
+        <tr>
+            <th>SMS Count</th>
+            <td id='msgCount'></td>
+        </tr>
+        <tr>
+            <th>SMS Character Limit</th>
+            <td id='charLimit'></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

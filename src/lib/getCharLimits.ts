@@ -1,11 +1,10 @@
+import {CharacterLimits, Encoding} from './types';
 import {
-    CharacterLimits,
-    Encoding,
     GSM7_CHAR_LIMIT,
     GSM7_CHAR_LIMIT_REDUCED,
     UCS2_CHAR_LIMIT,
     UCS2_CHAR_LIMIT_REDUCED
-} from '../index';
+} from './constants';
 
 export const getCharLimits = (encoding: Encoding, charCount: number): CharacterLimits => {
     const limits: CharacterLimits = {

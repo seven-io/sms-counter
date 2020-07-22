@@ -29,7 +29,7 @@ describe('CharCount', () => {
         () => expect(charCount('°sms77°')).toBe(7));
 
     test('UCS-2 with special chars',
-        () => expect(charCount('°€sms77€°')).toBe(11));
+        () => expect(charCount('°€sms77€°')).toBe(9));
 });
 
 describe('Encoding', () => {

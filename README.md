@@ -5,7 +5,7 @@
 ## Installation
 - For Browsers
 
-    ```<script src="https://unpkg.com/@sms77.io/counter@1.2.0/dist/index.js"></script>```
+    ```<script src="https://unpkg.com/@sms77.io/counter@1.3.1/dist/index.js"></script>```
     
 - For NodeJS
 
@@ -24,4 +24,5 @@
             position: InsertPosition = 'afterend', // where to add the counter span
             selector: string = 'textarea[data-sms77-sms]', // the inputs selector
             standalone: boolean = false, // stop attaching input listeners
+            stats: boolean = false, // whether to output stats or not
     }
