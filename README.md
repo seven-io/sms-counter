@@ -5,24 +5,37 @@
 ## Installation
 - For Browsers
 
-    ```<script src="https://unpkg.com/@sms77.io/counter@1.3.1/dist/index.js"></script>```
+    ```html
+    <script src="https://unpkg.com/@sms77.io/counter@1.3.2/dist/index.js"></script>
+    ```
     
 - For NodeJS
 
-   ```yarn add @sms77.io/counter```
+   ```shell
+   yarn add @sms77.io/counter
+   ```
 
-   ```import '@sms77.io/counter'```
+   ```javascript
+    import '@sms77.io/counter'
+   ```
 
 ### Usage
-    <textarea data-sms77-sms></textarea>
+```html
+<textarea data-sms77-sms></textarea>
+```
+
+
+For advanced usage see the [example](./example/index.html).
     
 #### Options
-    Set the window object before loading the library.
+Set the window object before loading the library.
 
-    window.SMS77IO_COUNTER_OPTIONS = {
+```javascript
+window.SMS77IO_COUNTER_OPTIONS = {
             initEvent: string = 'DOMContentLoaded', // the DOM event for init
             position: InsertPosition = 'afterend', // where to add the counter span
             selector: string = 'textarea[data-sms77-sms]', // the inputs selector
             standalone: boolean = false, // stop attaching input listeners
             stats: boolean = false, // whether to output stats or not
     }
+```

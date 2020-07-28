@@ -1,4 +1,4 @@
-export const ONE_BYTE_CHARS = [
+export const GSM_7BIT_ABC_DEFAULT = [
     '@',
     'Δ',
     ' ',
@@ -126,7 +126,7 @@ export const ONE_BYTE_CHARS = [
     'à'
 ];
 
-export const TWO_BYTE_CHARS = [
+export const GSM_7BIT_ABC_EXTENSION = [
     '^',
     '|',
     '€',
@@ -137,3 +137,5 @@ export const TWO_BYTE_CHARS = [
     '~',
     '\\'
 ];
+
+export const GSM_7BIT_ABC = [...GSM_7BIT_ABC_DEFAULT, ...GSM_7BIT_ABC_EXTENSION];

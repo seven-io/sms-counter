@@ -25,9 +25,22 @@ export type CounterOptions = {
     stats: boolean
 }
 
+export type Char = {
+    character: string
+    encoding: Encoding
+    extension: boolean
+    gsm7: boolean
+    length: number
+    udh: boolean
+    unicode: boolean
+}
+
+export type Messages = Array<Char[]>;
+
 export type CounterStats = {
     charCount: number
     charLimit: number
     encoding: Encoding
+    messages: Messages
     msgCount: number
 }

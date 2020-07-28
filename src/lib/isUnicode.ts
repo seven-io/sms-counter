@@ -1,0 +1,1 @@
+export const isUnicode = (character: string) => /[^\u0000-\u00ff]/.test(character);

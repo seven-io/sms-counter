@@ -1,13 +1,12 @@
 import {setStyle} from './setStyle';
-import {getStats} from './getStats';
+import {getDetails} from './getDetails';
 import {CounterOptions} from './types';
-
-export const COUNTER_INPUT_EVENT = 'sms77io_counter_input';
+import {COUNTER_INPUT_EVENT} from './constants';
 
 const onEvent = (options: CounterOptions) => {
     const eachTextarea = (textarea: HTMLTextAreaElement): void => {
         const onInput = () => {
-            const detail = getStats(textarea);
+            const detail = getDetails(textarea);
 
             if (options.stats) {
                 setStyle(textarea, detail);
@@ -22,7 +21,7 @@ const onEvent = (options: CounterOptions) => {
             textarea.insertAdjacentHTML(options.position,
                 '<span style="position: absolute;"></span>');
 
-            setStyle(textarea, getStats(textarea));
+            setStyle(textarea, getDetails(textarea));
         }
 
         textarea.addEventListener('input', onInput);
