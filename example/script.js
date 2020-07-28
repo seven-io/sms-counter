@@ -3,15 +3,11 @@ window.SMS77IO_COUNTER_OPTIONS = {
 };
 
 const messages = messages => {
-    const getTitle = char => Object.entries(char).map(([k, v]) => `${k}: ${v}`).join('\n');
-
-    const getStyle = char => `background-color: ${Color.get(char)};`;
-
     const chars = msg => msg.map(char => `
                     <li 
                     class='sms77-letter' 
-                    style='${getStyle(char)}' 
-                    title='${getTitle(char)}'
+                    style='background-color: ${Color.get(char)};' 
+                    title='${Object.entries(char).map(([k, v]) => `${k}: ${v}`).join('\n')}'
                     >
                         ${' ' === char.character ? '&nbsp;' : char.character}
                     </li>

@@ -28,7 +28,7 @@ export type CounterOptions = {
 export type Char = {
     character: string
     encoding: Encoding
-    extension: boolean
+    escape: boolean
     gsm7: boolean
     length: number
     udh: boolean
