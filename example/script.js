@@ -13,7 +13,7 @@ const messages = messages => {
                     style='${getStyle(char)}' 
                     title='${getTitle(char)}'
                     >
-                        ${char.character}
+                        ${' ' === char.character ? '&nbsp;' : char.character}
                     </li>
                 `).join('');
 
