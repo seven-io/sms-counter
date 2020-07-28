@@ -51,7 +51,7 @@ export const getMessages = (encoding: Encoding, isMulti: boolean, letters: strin
         }
 
         const chars = msg.filter((m: any) => m).map((character: string): Char => {
-            if (2 === character.length) { // 'UDH' === character
+            if (character.length > 1 && 'ESC' !== character) {
                 return {
                     character,
                     encoding: 'GSM7',
