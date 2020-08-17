@@ -1,9 +1,9 @@
-import {GSM_7BIT_ABC_DEFAULT, GSM_7BIT_ABC_EXTENSION} from './chars';
+import {GSM_7BIT_ABC} from './chars';
 import {Encoding} from './types';
 
-export const getEncoding = (textarea: HTMLTextAreaElement): Encoding => {
-    for (const char of textarea.value.split('')) {
-        if (![...GSM_7BIT_ABC_EXTENSION, ...GSM_7BIT_ABC_DEFAULT].includes(char)) {
+export const getEncoding = (chars: string[]): Encoding => {
+    for (const char of chars) {
+        if (!GSM_7BIT_ABC.includes(char)) {
             return 'UCS2';
         }
     }

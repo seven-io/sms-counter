@@ -12,7 +12,8 @@ export const GSM_7BIT_ABC_DEFAULT = [
     '@',
     'Δ',
     ' ',
-    '\\s',
+    '\s',
+    '\n',
     '¡',
     'P',
     '¿',
@@ -124,7 +125,7 @@ export const GSM_7BIT_ABC_DEFAULT = [
     'O',
     '§',
     'o',
-    'à'
+    'à',
 ];
 
 export const GSM_7BIT_ABC_EXTENSION = [
@@ -136,7 +137,7 @@ export const GSM_7BIT_ABC_EXTENSION = [
     '[',
     ']',
     '~',
-    '\\'
+    '\\',
 ];
 
 export const GSM_7BIT_ABC = [...GSM_7BIT_ABC_DEFAULT, ...GSM_7BIT_ABC_EXTENSION];

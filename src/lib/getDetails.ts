@@ -7,8 +7,8 @@ import {getMessages} from './getMessages';
 import {getCharLimit} from './getCharLimit';
 
 export const getDetails = (textarea: HTMLTextAreaElement): CounterStats => {
-    const encoding = getEncoding(textarea);
     const letters = textarea.value.split('');
+    const encoding = getEncoding(letters);
     const charCount = getCharsCount(encoding, letters);
     const charLimits = getCharLimits(encoding, charCount);
     const msgCount = getMessageCount(charCount, charLimits, encoding);

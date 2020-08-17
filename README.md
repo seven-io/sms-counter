@@ -6,7 +6,7 @@
 - For Browsers
 
     ```html
-    <script src="https://unpkg.com/@sms77.io/counter@1.3.4/dist/index.js"></script>
+    <script src="https://unpkg.com/@sms77.io/counter/dist/index.js"></script>
     ```
     
 - For NodeJS
