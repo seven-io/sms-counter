@@ -11,9 +11,7 @@
     
 - For NodeJS
 
-   ```shell
-   yarn add @sms77.io/counter
-   ```
+   **Yarn** ```yarn add @sms77.io/counter``` **NPM** ```npm install @sms77.io/counter```
 
    ```javascript
     import '@sms77.io/counter'
