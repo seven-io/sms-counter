@@ -30,10 +30,16 @@ Set the window object before loading the library.
 
 ```javascript
 window.SMS77IO_COUNTER_OPTIONS = {
-            initEvent: string = 'DOMContentLoaded', // the DOM event for init
-            position: InsertPosition = 'afterend', // where to add the counter span
-            selector: string = 'textarea[data-sms77-sms]', // the inputs selector
-            standalone: boolean = false, // stop attaching input listeners
-            stats: boolean = false, // whether to output stats or not
-    }
+  initEvent: string = 'DOMContentLoaded', // the DOM event for init
+  position: InsertPosition = 'afterend', // where to add the counter span
+  selector: string = 'textarea[data-sms77-sms]', // the inputs selector
+  standalone: boolean = false, // stop attaching input listeners
+  stats: boolean = false, // whether to output stats or not
+}
 ```
+
+##### Support
+
+Need help? Feel free to [contact us](https://www.sms77.io/en/company/contact/).
+
+[![MIT](https://img.shields.io/badge/License-MIT-teal.svg)](./LICENSE.txt)
