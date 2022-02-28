@@ -1,18 +1,22 @@
 {
-  "compilerOptions": {
-    "downlevelIteration": true,
-    "esModuleInterop": true,
-    "importHelpers": true,
-    "lib": [
-      "DOM",
-      "ES6",
-      "ES2016.Array.Include"
+    "compilerOptions": {
+        "declaration": true,
+        "downlevelIteration": true,
+        "esModuleInterop": true,
+        "importHelpers": true,
+        "lib": [
+            "DOM",
+            "ES6",
+            "ES2016.Array.Include"
+        ],
+        "outDir": "dist",
+        "resolveJsonModule": true,
+        "strict": true
+    },
+    "exclude": [
+        "src/**/*.spec.ts"
     ],
-    "outDir": "dist",
-    "resolveJsonModule": true,
-    "strict": true
-  },
-  "include": [
-    "src/**/*.ts"
-  ]
+    "include": [
+        "src/**/*.ts"
+    ]
 }

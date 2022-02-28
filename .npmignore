@@ -1,5 +1,9 @@
 .idea/
-!src/lib/types.ts
+dist/**/*.ts
+!dist/lib/getCounterStats.d.ts
+!dist/lib/types.d.ts
+!dist/index.d.ts
+examples/
 src/
 .gitignore
 rollup.config.js

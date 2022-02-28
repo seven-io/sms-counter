@@ -2,6 +2,9 @@ import {listen} from './lib/listen'
 import {CounterOptions} from './lib/types'
 
 export * from './lib/getCounterStats'
+export * from './lib/types'
+
+const isBrowser = 'window' in globalThis
 
 const options: CounterOptions = {
     initEvent: 'DOMContentLoaded',
@@ -9,7 +12,7 @@ const options: CounterOptions = {
     selector: '*[data-sms77-sms]',
     standalone: false,
     stats: true,
-    ...((window as any).SMS77IO_COUNTER_OPTIONS || {}),
+    ...(isBrowser ? (window as any).SMS77IO_COUNTER_OPTIONS || {} : {}),
 }
 
-if (!options.standalone) listen(options)
+if (isBrowser && !options.standalone) listen(options)

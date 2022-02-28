@@ -1,10 +1,3 @@
-import {
-    GSM7_CHAR_LIMIT,
-    GSM7_CHAR_LIMIT_REDUCED,
-    UCS2_CHAR_LIMIT,
-    UCS2_CHAR_LIMIT_REDUCED,
-} from './constants'
-
 export type Char = {
     character: string
     encoding: Encoding
@@ -16,9 +9,16 @@ export type Char = {
 }
 
 export type CharacterLimits = {
-    GSM7: typeof GSM7_CHAR_LIMIT | typeof GSM7_CHAR_LIMIT_REDUCED
-    UCS2: typeof UCS2_CHAR_LIMIT | typeof UCS2_CHAR_LIMIT_REDUCED
+    GSM7: CharLimit.GSM7 | CharLimit.GSM7_REDUCED
+    UCS2: CharLimit.UCS2 | CharLimit.UCS2_REDUCED
 };
+
+export enum CharLimit {
+    GSM7 = 160,
+    GSM7_REDUCED = 153,
+    UCS2 = 70,
+    UCS2_REDUCED = 67,
+}
 
 export type CounterOptions = {
     initEvent: string

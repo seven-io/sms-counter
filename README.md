@@ -2,19 +2,22 @@
 
 # SMS Counter by Sms77
 
+Counts the SMS character usage for a textarea or text input.
+
 ## Installation
 
 ### For Browsers
 
-    ```html
-    <script src='https://unpkg.com/@sms77.io/counter/dist/index.js'></script>
-    ```
+```html
+
+<script src='https://unpkg.com/@sms77.io/counter/dist/index.js'></script>
+```
 
 ### For NodeJS
 
-#### Yarn ```yarn add @sms77.io/counter```
+#### Yarn `yarn add @sms77.io/counter`
 
-#### NPM```npm install @sms77.io/counter```
+#### NPM `npm install @sms77.io/counter`
 
 ```javascript
 import '@sms77.io/counter'
@@ -24,9 +27,16 @@ import '@sms77.io/counter'
 
 ```html
 <textarea data-sms77-sms></textarea>
+<input data-sms77-sms/>
 ```
 
-For advanced usage see the [example](./example/index.html).
+For advanced usage see the [examples](examples).
+
+- [textarea](examples/textarea.html)
+- [input](examples/input.html)
+- [CSS Selector](examples/selector.html)
+- [stats](examples/stats.html)
+- [getCounterStats](examples/counterStats.js)
 
 ## Options
 
@@ -35,10 +45,10 @@ Set the window object before loading the library.
 ```javascript
 window.SMS77IO_COUNTER_OPTIONS = {
     initEvent: string = 'DOMContentLoaded', // the DOM event for init
-    position: InsertPosition = 'afterend', // where to add the counter span
-    selector: string = 'textarea[data-sms77-sms]', // the inputs selector
+    position: InsertPosition = 'afterend', // where to add the counter stats span relative to the input
+    selector: string = '*[data-sms77-sms]', // the inputs selector
     standalone: boolean = false, // stop attaching input listeners
-    stats: boolean = false, // whether to output stats or not
+    stats: boolean = false, // whether to output stats or not - also accepts HTMLElement or CSS selector
 }
 ```
 
