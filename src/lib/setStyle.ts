@@ -1,13 +1,15 @@
-import {CounterStats} from './types';
+import {CounterStats, SourceElement} from './types'
 
 export const setStyle = (
-    textarea: HTMLTextAreaElement,
-    {charCount, encoding, msgCount}: CounterStats
-) => {
-    const $span = textarea.nextElementSibling as HTMLSpanElement;
+    sourceElement: SourceElement,
+    {charCount, encoding, msgCount}: CounterStats,
+    targetElement: HTMLElement,
+): void => {
+    targetElement.textContent = `${charCount}/${msgCount} [${encoding}]`
 
-    $span.textContent = `${charCount}/${msgCount} [${encoding}]`;
+    const widthDiff = sourceElement.offsetWidth - targetElement.offsetWidth
+    targetElement.style.left = `${widthDiff}px`
 
-    $span.style.left = `${textarea.offsetWidth - $span.offsetWidth}px`;
-    $span.style.top = `${textarea.offsetHeight - $span.offsetHeight}px`;
-};
+    const heightDiff = sourceElement.offsetHeight - targetElement.offsetHeight
+    targetElement.style.top = `${heightDiff}px`
+}

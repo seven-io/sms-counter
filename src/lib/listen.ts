@@ -1,36 +1,36 @@
-import {setStyle} from './setStyle';
-import {getDetails} from './getDetails';
-import {CounterOptions} from './types';
-import {COUNTER_INPUT_EVENT} from './constants';
+import {setStyle} from './setStyle'
+import {getDetails} from './getDetails'
+import {CounterOptions, SourceElement} from './types'
+import {COUNTER_INPUT_EVENT} from './constants'
 
-const onEvent = (options: CounterOptions) => {
-    const eachTextarea = (textarea: HTMLTextAreaElement): void => {
+const onEvent = (options: CounterOptions): void => {
+    const eachSourceElement = (sourceElement: SourceElement): void => {
         const onInput = () => {
-            const detail = getDetails(textarea);
+            const detail = getDetails(sourceElement)
 
-            if (options.stats) {
-                setStyle(textarea, detail);
-            }
+            if (options.stats) setStyle(sourceElement, detail,
+                sourceElement.nextElementSibling as HTMLElement)
 
             document.dispatchEvent(
-                new CustomEvent(COUNTER_INPUT_EVENT, {detail})
-            );
-        };
-
-        if (options.stats) {
-            textarea.insertAdjacentHTML(options.position,
-                '<span style="position: absolute;"></span>');
-
-            setStyle(textarea, getDetails(textarea));
+                new CustomEvent(COUNTER_INPUT_EVENT, {detail}),
+            )
         }
 
-        textarea.addEventListener('input', onInput);
-    };
+        if (options.stats) {
+            sourceElement.insertAdjacentHTML(options.position,
+                '<span style="position: absolute"></span>')
 
-    return (Array.from(document.querySelectorAll(options.selector)) as HTMLTextAreaElement[])
-        .forEach(eachTextarea);
-};
+            setStyle(sourceElement, getDetails(sourceElement),
+                sourceElement.nextElementSibling as HTMLElement)
+        }
 
-export const listen = (options: CounterOptions) =>
+        sourceElement.addEventListener('input', onInput)
+    }
+
+    return (Array.from(document.querySelectorAll(options.selector)) as SourceElement[])
+        .forEach(eachSourceElement)
+}
+
+export const listen = (options: CounterOptions): void =>
     document.addEventListener(options.initEvent, (): void =>
-        onEvent(options), {once: true});
+        onEvent(options), {once: true})

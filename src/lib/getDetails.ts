@@ -1,12 +1,12 @@
 import {getEncoding} from './getEncoding';
 import {getMessageCount} from './getMessageCount';
 import {getCharLimits} from './getCharLimits';
-import {CounterStats} from './types';
+import {CounterStats, SourceElement} from './types'
 import {getCharsCount} from './getCharsCount';
 import {getMessages} from './getMessages';
 import {getCharLimit} from './getCharLimit';
 
-export const getDetails = (textarea: HTMLTextAreaElement): CounterStats => {
+export const getDetails = (textarea: SourceElement): CounterStats => {
     const letters = textarea.value.split('');
     const encoding = getEncoding(letters);
     const charCount = getCharsCount(encoding, letters);

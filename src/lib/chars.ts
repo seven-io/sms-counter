@@ -1,4 +1,4 @@
-export const GSM_7BIT_ABC_DEFAULT = [
+export const GSM_7BIT_ABC_DEFAULT = Object.freeze([
     '0',
     '1',
     '2',
@@ -126,9 +126,9 @@ export const GSM_7BIT_ABC_DEFAULT = [
     '§',
     'o',
     'à',
-];
+]);
 
-export const GSM_7BIT_ABC_EXTENSION = [
+export const GSM_7BIT_ABC_EXTENSION = Object.freeze([
     '^',
     '|',
     '€',
@@ -138,6 +138,9 @@ export const GSM_7BIT_ABC_EXTENSION = [
     ']',
     '~',
     '\\',
-];
+]);
 
-export const GSM_7BIT_ABC = [...GSM_7BIT_ABC_DEFAULT, ...GSM_7BIT_ABC_EXTENSION];
+export const GSM_7BIT_ABC = Object.freeze([
+    ...GSM_7BIT_ABC_DEFAULT,
+    ...GSM_7BIT_ABC_EXTENSION
+]);

@@ -2,13 +2,8 @@ import {
     GSM7_CHAR_LIMIT,
     GSM7_CHAR_LIMIT_REDUCED,
     UCS2_CHAR_LIMIT,
-    UCS2_CHAR_LIMIT_REDUCED
-} from './constants';
-
-export type CharCount = {
-    charCount: number
-    reduced: boolean
-}
+    UCS2_CHAR_LIMIT_REDUCED,
+} from './constants'
 
 export type CharacterLimits = {
     GSM7: typeof GSM7_CHAR_LIMIT | typeof GSM7_CHAR_LIMIT_REDUCED
@@ -44,3 +39,5 @@ export type CounterStats = {
     messages: Messages
     msgCount: number
 }
+
+export type SourceElement = HTMLInputElement | HTMLTextAreaElement

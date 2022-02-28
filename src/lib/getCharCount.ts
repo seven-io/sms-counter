@@ -1,18 +1,18 @@
-import {GSM_7BIT_ABC_EXTENSION} from './chars';
-import {Encoding} from './types';
+import {GSM_7BIT_ABC_EXTENSION} from './chars'
+import {Encoding, SourceElement} from './types'
 
-export const getCharCount = (textarea: HTMLTextAreaElement, encoding: Encoding): number => {
-    let charCount = textarea.value.length;
+export const getCharCount = (input: SourceElement, encoding: Encoding): number => {
+    let charCount = input.value.length
 
     if ('GSM7' === encoding) {
         for (const twoByteChar of GSM_7BIT_ABC_EXTENSION) {
-            for (const char of textarea.value.split('')) {
+            for (const char of input.value.split('')) {
                 if (char === twoByteChar) {
-                    charCount++;
+                    charCount++
                 }
             }
         }
     }
 
-    return charCount;
-};
+    return charCount
+}

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () =>
     Object.keys(Color)
-        .filter(key => 'function' !== typeof Color[key])
+        .filter(key => typeof Color[key] !== 'function')
         .forEach(key => document.getElementById(key).style.backgroundColor = Color[key])
 );
