@@ -1,33 +1,36 @@
 import {setStyle} from './setStyle'
-import {getDetails} from './getDetails'
+import {getCounterStats} from './getCounterStats'
 import {CounterOptions, SourceElement} from './types'
-import {COUNTER_INPUT_EVENT} from './constants'
+import {onInput} from './onInput'
+import {setText} from './setText'
 
 const onEvent = (options: CounterOptions): void => {
     const eachSourceElement = (sourceElement: SourceElement): void => {
-        const onInput = () => {
-            const detail = getDetails(sourceElement)
+        let statsElement: HTMLElement | undefined | null
+        let needsStyling = false
 
-            if (options.stats) setStyle(sourceElement, detail,
-                sourceElement.nextElementSibling as HTMLElement)
+        if (options.stats !== false) {
+            if (options.stats === true) {
+                statsElement = document.createElement('span')
+                statsElement.style.position = 'absolute'
+                sourceElement.insertAdjacentElement(options.position, statsElement)
+                needsStyling = true
+                setStyle(sourceElement, statsElement)
+            } else {
+                statsElement = typeof options.stats === 'string'
+                    ? document.querySelector<HTMLElement>(options.stats)
+                    : options.stats
+                needsStyling = false
+            }
 
-            document.dispatchEvent(
-                new CustomEvent(COUNTER_INPUT_EVENT, {detail}),
-            )
+            if (statsElement) setText(statsElement, getCounterStats(sourceElement))
         }
 
-        if (options.stats) {
-            sourceElement.insertAdjacentHTML(options.position,
-                '<span style="position: absolute"></span>')
-
-            setStyle(sourceElement, getDetails(sourceElement),
-                sourceElement.nextElementSibling as HTMLElement)
-        }
-
-        sourceElement.addEventListener('input', onInput)
+        sourceElement.addEventListener('input',
+            () => onInput(sourceElement, statsElement, needsStyling))
     }
 
-    return (Array.from(document.querySelectorAll(options.selector)) as SourceElement[])
+    (Array.from(document.querySelectorAll(options.selector)) as SourceElement[])
         .forEach(eachSourceElement)
 }
 

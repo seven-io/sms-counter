@@ -1,6 +1,8 @@
 import {listen} from './lib/listen'
 import {CounterOptions} from './lib/types'
 
+export * from './lib/getCounterStats'
+
 const options: CounterOptions = {
     initEvent: 'DOMContentLoaded',
     position: 'afterend',

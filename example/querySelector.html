@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+
+    <title>SMS Counter by sms77</title>
+
+    <link href='./style.css' rel='stylesheet'>
+
+    <script src='./Color.js'></script>
+    <script src='./layout.js'></script>
+    <script src='./script.js'></script>
+    <script>window.SMS77IO_COUNTER_OPTIONS = {stats: '#smsCount'}</script>
+    <script src='../dist/index.js'></script>
+</head>
+<body>
+<h1>SMS Counter by Sms77.io</h1>
+
+<h2>Message</h2>
+
+<textarea aria-label='SMS Counter Example' data-sms77-sms rows='5'></textarea>
+<span id='smsCount' style='background-color: lightcoral; padding: 5px 5px 5px 5px'></span>
+<h2>Details</h2>
+
+<table>
+    <tr>
+        <th>Encoding</th>
+        <td id='encoding'></td>
+    </tr>
+    <tr>
+        <th>Character Count</th>
+        <td id='charCount'></td>
+    </tr>
+    <tr>
+        <th>SMS Count</th>
+        <td id='msgCount'></td>
+    </tr>
+    <tr>
+        <th>SMS Character Limit</th>
+        <td id='charLimit'></td>
+    </tr>
+</table>
+
+<h2>Messages</h2>
+
+<ul id='messages'></ul>
+
+<h3>Legend</h3>
+
+<dl>
+    <dt id='escape'></dt>
+    <dd>Escape character 0x1B required to access these characters:
+        <code>| ^ € { } [ ] ~</code>
+    </dd>
+
+    <dt id='notGsm'></dt>
+    <dd>Force Unicode encoding as character is not present in GSM charset</dd>
+
+    <dt id='unicode'></dt>
+    <dd>Unicode encoded character present in GSM charset</dd>
+
+    <dt id='regular'></dt>
+    <dd>Regular 7-bit character present in GSM charset</dd>
+
+    <dt id='udh'></dt>
+    <dd>User Defined Header (UDH) required for multipart sms</dd>
+</dl>
+</body>
+</html>
