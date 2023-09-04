@@ -1,1 +1,1 @@
-export const COUNTER_INPUT_EVENT = 'sms77io_counter_input'
+export const COUNTER_INPUT_EVENT = 'seven_counter_input'

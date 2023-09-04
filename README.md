@@ -1,6 +1,6 @@
-![](https://www.sms77.io/wp-content/uploads/2019/07/sms77-Logo-400x79.png "sms77 Logo")
+![](https://www.seven.io/wp-content/uploads/Logo.svg "seven Logo")
 
-# SMS Counter by Sms77
+# SMS Counter by seven
 
 Counts the SMS character usage for a textarea or text input.
 
@@ -10,24 +10,24 @@ Counts the SMS character usage for a textarea or text input.
 
 ```html
 
-<script src='https://unpkg.com/@sms77.io/counter/dist/index.js'></script>
+<script src='https://unpkg.com/@seven.io/counter/dist/index.js'></script>
 ```
 
 ### For NodeJS
 
-#### Yarn `yarn add @sms77.io/counter`
+#### Yarn `yarn add @seven.io/counter`
 
-#### NPM `npm install @sms77.io/counter`
+#### NPM `npm install @seven.io/counter`
 
 ```javascript
-import '@sms77.io/counter'
+import '@seven.io/counter'
 ```
 
 ## Usage
 
 ```html
-<textarea data-sms77-sms></textarea>
-<input data-sms77-sms/>
+<textarea data-seven-sms></textarea>
+<input data-seven-sms/>
 ```
 
 For advanced usage see the [examples](examples).
@@ -43,10 +43,10 @@ For advanced usage see the [examples](examples).
 Set the window object before loading the library.
 
 ```javascript
-window.SMS77IO_COUNTER_OPTIONS = {
+window.SEVEN_COUNTER_OPTIONS = {
     initEvent: string = 'DOMContentLoaded', // the DOM event for init
     position: InsertPosition = 'afterend', // where to add the counter stats span relative to the input
-    selector: string = '*[data-sms77-sms]', // the inputs selector
+    selector: string = '*[data-seven-sms]', // the inputs selector
     standalone: boolean = false, // stop attaching input listeners
     stats: boolean = false, // whether to output stats or not - also accepts HTMLElement or CSS selector
 }
@@ -54,6 +54,6 @@ window.SMS77IO_COUNTER_OPTIONS = {
 
 ## Support
 
-Need help? Feel free to [contact us](https://www.sms77.io/en/company/contact/).
+Need help? Feel free to [contact us](https://www.seven.io/en/company/contact/).
 
 [![MIT](https://img.shields.io/badge/License-MIT-teal.svg)](LICENSE.txt)

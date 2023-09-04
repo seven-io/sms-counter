@@ -9,10 +9,10 @@ const isBrowser = 'window' in globalThis
 const options: CounterOptions = {
     initEvent: 'DOMContentLoaded',
     position: 'afterend',
-    selector: '*[data-sms77-sms]',
+    selector: '*[data-seven-sms]',
     standalone: false,
     stats: true,
-    ...(isBrowser ? (window as any).SMS77IO_COUNTER_OPTIONS || {} : {}),
+    ...(isBrowser ? (window as any).SEVEN_COUNTER_OPTIONS || {} : {}),
 }
 
 if (isBrowser && !options.standalone) listen(options)

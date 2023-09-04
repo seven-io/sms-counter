@@ -14,7 +14,7 @@ dt {
     grid-column-start: 1;
 }
 
-dt, .sms77-letter {
+dt, .seven-letter {
     height: 35px;
     width: 35px;
 }
@@ -23,7 +23,7 @@ dd {
     grid-column-start: 2;
 }
 
-.sms77-letter {
+.seven-letter {
     align-items: center;
     display: inline-flex;
     justify-content: center;

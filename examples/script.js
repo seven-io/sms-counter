@@ -1,4 +1,4 @@
-window.SMS77IO_COUNTER_OPTIONS = {
+window.SEVEN_COUNTER_OPTIONS = {
     stats: false,
 };
 
@@ -7,7 +7,7 @@ const displayedChar = char => ' ' === char
         ? 'LF' : char;
 
 const msgChars = (color, msg) => msg.map(c => `<li 
-                    class='sms77-letter' 
+                    class='seven-letter' 
                     style='background-color: ${color.get(c)};' 
                     title='${Object.keys(c).map(k => `${k}: ${c[k]}`).join('\n')}'
                     >
@@ -15,7 +15,7 @@ const msgChars = (color, msg) => msg.map(c => `<li
                     </li>
                 `).join('');
 
-document.addEventListener('sms77io_counter_input',
+document.addEventListener('seven_counter_input',
     ({detail}) => Object.keys(detail).forEach(k => {
         const value = detail[k];
 

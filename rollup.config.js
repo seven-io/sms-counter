@@ -1,7 +1,7 @@
 import 'core-js'
 import commonjs from '@rollup/plugin-commonjs'
-import {terser} from 'rollup-plugin-terser'
-import typescript from 'rollup-plugin-typescript2'
+import terser from '@rollup/plugin-terser'
+import typescript from '@rollup/plugin-typescript'
 import babel from '@rollup/plugin-babel'
 import pkg from './package.json'
 
@@ -28,7 +28,7 @@ export default {
         exports: 'named',
         file: pkg.main,
         format: 'umd',
-        name: 'Sms77Counter',
+        name: 'SevenCounter',
     },
     plugins,
 }
