@@ -36,10 +36,10 @@
     },
     "scripts": {
         "build": "rm -rf dist && NODE_ENV=prod rollup -c --bundleConfigAsCjs",
-        "dev": "rollup -c -w",
+        "dev": "rollup -c -w --bundleConfigAsCjs",
         "prepublishOnly": "npm run build",
         "test": "npx jest"
     },
     "types": "dist/index.d.ts",
-    "version": "1.6.2"
+    "version": "1.6.3"
 }
