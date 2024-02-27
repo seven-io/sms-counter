@@ -1,4 +1,4 @@
-import {Char, Encoding, Messages} from './types'
+import type {Char, Encoding, Messages} from './types'
 import {getCharLength} from './getCharLength'
 import {getCharEncoding} from './getCharEncoding'
 import {isGSM7} from './isGSM7'

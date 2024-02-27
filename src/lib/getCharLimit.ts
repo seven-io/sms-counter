@@ -1,4 +1,4 @@
-import {CharLimit, Encoding} from './types'
+import {CharLimit, type Encoding} from './types'
 
 export const getCharLimit = (isMultiMessage: boolean, encoding: Encoding): number =>
     'GSM7' === encoding

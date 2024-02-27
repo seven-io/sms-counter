@@ -1,4 +1,4 @@
-import {SourceElement} from './types'
+import type {SourceElement} from './types'
 
 export const setStyle = (
     sourceElement: SourceElement,

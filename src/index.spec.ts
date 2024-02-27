@@ -1,6 +1,6 @@
 import {getCharCount} from './lib/getCharCount'
 import {getEncoding} from './lib/getEncoding'
-import {SourceElement} from './lib/types'
+import type {SourceElement} from './lib/types'
 
 const textarea = (text: string) => {
     document.body.insertAdjacentHTML(
@@ -38,6 +38,9 @@ describe('CharCount <textarea>', () => {
 
     test('GSM-7 with line breaks CR + LF',
         () => expect(charCount(textarea('\r\nseven\r\n'))).toBe(6))
+
+    test('GSM-7 with escape characters',
+        () => expect(charCount(textarea('€€'))).toBe(4))
 
     test('UCS-2',
         () => expect(charCount(textarea('°seven°'))).toBe(7))

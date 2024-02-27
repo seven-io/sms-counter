@@ -1,7 +1,7 @@
 import {getEncoding} from './getEncoding'
 import {getMessageCount} from './getMessageCount'
 import {getCharLimits} from './getCharLimits'
-import {CounterStats, SourceElement} from './types'
+import type {CounterStats, SourceElement} from './types'
 import {getCharsCount} from './getCharsCount'
 import {getMessages} from './getMessages'
 import {getCharLimit} from './getCharLimit'

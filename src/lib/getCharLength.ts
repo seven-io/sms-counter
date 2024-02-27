@@ -1,5 +1,5 @@
 import {GSM_7BIT_ABC_EXTENSION} from './chars'
-import {Encoding} from './types'
+import type {Encoding} from './types'
 
 export const getCharLength = (encoding: Encoding, char: string): number => {
     let count = 1

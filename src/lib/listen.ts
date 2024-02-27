@@ -1,6 +1,6 @@
 import {setStyle} from './setStyle'
 import {getCounterStats} from './getCounterStats'
-import {CounterOptions, SourceElement} from './types'
+import type {CounterOptions, SourceElement} from './types'
 import {onInput} from './onInput'
 import {setText} from './setText'
 

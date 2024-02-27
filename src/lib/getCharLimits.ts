@@ -1,4 +1,4 @@
-import {CharacterLimits, CharLimit, Encoding} from './types'
+import {type CharacterLimits, CharLimit, type Encoding} from './types'
 
 export const getCharLimits = (encoding: Encoding, charCount: number): CharacterLimits => {
     const limits: CharacterLimits = {

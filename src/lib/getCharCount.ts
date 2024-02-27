@@ -1,5 +1,5 @@
 import {GSM_7BIT_ABC_EXTENSION} from './chars'
-import {Encoding, SourceElement} from './types'
+import type {Encoding, SourceElement} from './types'
 
 export const getCharCount = (input: SourceElement, encoding: Encoding): number => {
     let charCount = input.value.length

@@ -1,7 +1,7 @@
 import {getCounterStats} from './getCounterStats'
 import {setStyle} from './setStyle'
 import {COUNTER_INPUT_EVENT} from './constants'
-import {SourceElement} from './types'
+import type {SourceElement} from './types'
 import {setText} from './setText'
 
 export const onInput = (

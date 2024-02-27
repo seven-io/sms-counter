@@ -1,5 +1,5 @@
 import {listen} from './lib/listen'
-import {CounterOptions} from './lib/types'
+import type {CounterOptions} from './lib/types'
 
 export * from './lib/getCounterStats'
 export * from './lib/types'

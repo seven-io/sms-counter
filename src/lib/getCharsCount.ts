@@ -1,4 +1,4 @@
-import {Encoding} from './types'
+import type {Encoding} from './types'
 import {getCharLength} from './getCharLength'
 
 export const getCharsCount = (encoding: Encoding, characters: string[]): number => {

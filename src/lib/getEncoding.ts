@@ -1,5 +1,5 @@
 import {GSM_7BIT_ABC} from './chars'
-import {Encoding} from './types'
+import type {Encoding} from './types'
 
 export const getEncoding = (chars: string[]): Encoding => {
     for (const char of chars)

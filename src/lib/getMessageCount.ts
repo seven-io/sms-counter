@@ -1,4 +1,4 @@
-import {CharacterLimits, Encoding} from './types'
+import type {CharacterLimits, Encoding} from './types'
 
 export const getMessageCount = (
     charCount: number,
