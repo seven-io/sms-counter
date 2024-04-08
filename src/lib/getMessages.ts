@@ -4,69 +4,79 @@ import {getCharEncoding} from './getCharEncoding'
 import {isGSM7} from './isGSM7'
 import {GSM_7BIT_ABC, GSM_7BIT_ABC_EXTENSION} from './chars'
 
-const ESCAPE_CHRACTER = 'ESC'
+const ESCAPE_CHARACTER = 'ESC'
 
-const getHeaders = (count: number, index: number) => [
-    '05',
-    '00',
-    '03',
-    'CC',
-    `0${count}`,
-    `0${index}`,
-]
+type GetMessagesParams = {
+    charLimit: number
+    encoding: Encoding
+    isMulti: boolean
+    letters: string[]
+    msgCount: number
+}
 
-export const getMessages = (
-    encoding: Encoding,
-    isMulti: boolean,
-    letters: string[],
-    msgCount: number,
-    charLimit: number,
-): Messages => {
+function isUnicodeCharacter(char: string): boolean {
+    return !GSM_7BIT_ABC.includes(char)
+}
+
+function isExtensionCharacter(char: string): boolean {
+    return GSM_7BIT_ABC_EXTENSION.includes(char)
+}
+
+export const getMessages = ({
+                                charLimit,
+                                encoding,
+                                isMulti,
+                                letters,
+                                msgCount,
+                            }: GetMessagesParams): Messages => {
     const messages: Messages = []
     let startIndex = 0
     let unicode = false
 
-    for (let [msgIndex, msg] of Array(msgCount).entries()) {
-        msg = []
+    for (let [msgIndex, msg = []] of Array<string[]>(msgCount).entries()) {
         let i = 1
         const endIndex = startIndex + charLimit
         const headers = getHeaders(msgCount, msgIndex)
         const headerCount = headers.length
         const msgChars = letters.slice(startIndex, endIndex)
 
-        for (const char of msgChars) {
+        msgChars.forEach(char => {
             const charIndex = (headerCount - 1) + i
 
-            if (!unicode && !GSM_7BIT_ABC.includes(char)) unicode = true
+            if (!unicode && isUnicodeCharacter(char)) unicode = true
 
             if (!unicode) {
-                if (GSM_7BIT_ABC_EXTENSION.includes(char)) {
-                    console.log('extension character in a non-unicode message, ADDING ESCAPE CHARACTER', {charIndex, char, msg})
+                if (isExtensionCharacter(char)) {
+                    console.log('extension character in a non-unicode message, ADDING ESCAPE CHARACTER', {
+                        charIndex,
+                        char,
+                        msg
+                    })
 
-                    msg.push(ESCAPE_CHRACTER)
+                    msg.push(ESCAPE_CHARACTER)
                 }
             }
 
             msg.push(char)
 
             i++
-        }
+        })
 
         startIndex = endIndex
 
-        if (isMulti) msg.splice(0, headerCount, ...headers)
+        if (isMulti) msg.splice(0, 0, ...headers)
 
         messages.push([
             ...msg
-                .filter((m: any) => m)
-                .map((character: any): Char => {
-                    const isGSM7Char = character.length > 1 && ESCAPE_CHRACTER !== character
+                .filter(m => m)
+                .map((character): Char => {
+                    const isGSM7Char = character.length > 1 && ESCAPE_CHARACTER !== character
 
                     return {
                         character,
                         encoding: isGSM7Char
                             ? 'GSM7' : getCharEncoding(getCharLength(encoding, character)),
-                        escape: isGSM7Char ? false : ESCAPE_CHRACTER === character,
+                        escape: isGSM7Char ? false : ESCAPE_CHARACTER === character,
                         gsm7: isGSM7Char ? true : isGSM7(character),
                         length: 1,
                         udh: isGSM7Char,
@@ -77,4 +87,15 @@ export const getMessages = (
     }
 
     return messages
+}
+
+function getHeaders(count: number, index: number): string[] {
+    return [
+        '05',
+        '00',
+        '03',
+        'CC',
+        `0${count}`,
+        `0${index}`,
+    ]
 }

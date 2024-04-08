@@ -14,12 +14,13 @@ export const getCounterStats = (source: SourceElement | string): CounterStats =>
     const msgCount = getMessageCount(charCount, charLimits, encoding)
     const isMulti = msgCount > 1
     const charLimit = getCharLimit(isMulti, encoding)
+    const messages = getMessages({encoding, isMulti, letters, msgCount, charLimit})
 
     return {
         charCount,
         charLimit,
         encoding,
-        messages: getMessages(encoding, isMulti, letters, msgCount, charLimit),
+        messages,
         msgCount,
     }
 }
