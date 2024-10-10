@@ -95,7 +95,7 @@ function getHeaders(count: number, index: number): string[] {
         '00',
         '03',
         'CC',
-        `0${count}`,
-        `0${index}`,
+        `0x${count.toString(16)}`,
+        `0x${index.toString(16)}`,
     ]
 }
