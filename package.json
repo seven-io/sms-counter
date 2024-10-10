@@ -1,48 +1,59 @@
 {
-    "author": "seven communications GmbH & Co. KG <support@seven.io> (https://www.seven.io/)",
-    "homepage": "https://github.com/seven-io/sms-counter",
-    "keywords": [
-        "sms",
-        "characters",
-        "count",
-        "gsm7",
-        "ucs2"
-    ],
-    "description": "Counts the SMS character usage in browser as well as NodeJS environments.",
-    "devDependencies": {
-        "@babel/preset-env": "^7.25.7",
-        "@rollup/plugin-babel": "^6.0.4",
-        "@rollup/plugin-commonjs": "^25.0.8",
-        "@rollup/plugin-terser": "^0.4.4",
-        "@rollup/plugin-typescript": "^11.1.6",
-        "@types/jest": "^29.5.13",
-        "cross-env": "^7.0.3",
-        "jest": "^29.7.0",
-        "jest-environment-jsdom": "^29.7.0",
-        "jest-runner-groups": "^2.2.0",
-        "rimraf": "^5.0.10",
-        "rollup": "^4.24.0",
-        "ts-jest": "^29.2.5",
-        "tslib": "^2.7.0",
-        "typescript": "^5.6.3"
-    },
-    "license": "MIT",
-    "main": "dist/index.js",
-    "name": "@seven.io/counter",
-    "publishConfig": {
-        "access": "public"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/seven-io/sms-counter.git"
-    },
-    "scripts": {
-        "build": "cross-env rimraf dist && npm run bundle",
-        "bundle": "cross-env NODE_ENV=prod rollup -c --bundleConfigAsCjs",
-        "dev": "rollup -c -w --bundleConfigAsCjs",
-        "prepublishOnly": "npm run build",
-        "test": "npx jest"
-    },
-    "types": "dist/index.d.ts",
-    "version": "1.7.0"
+  "author": "seven communications GmbH & Co. KG <support@seven.io> (https://www.seven.io/)",
+  "homepage": "https://github.com/seven-io/sms-counter",
+  "keywords": [
+    "sms",
+    "characters",
+    "count",
+    "gsm7",
+    "ucs2"
+  ],
+  "description": "Counts the SMS character usage in browser as well as NodeJS environments.",
+  "devDependencies": {
+    "@babel/preset-env": "^7.25.7",
+    "@chromatic-com/storybook": "^1.9.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^25.0.8",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@storybook/addon-essentials": "^8.3.5",
+    "@storybook/addon-interactions": "^8.3.5",
+    "@storybook/addon-links": "^8.3.5",
+    "@storybook/blocks": "^8.3.5",
+    "@storybook/html": "^8.3.5",
+    "@storybook/html-vite": "^8.3.5",
+    "@storybook/test": "^8.3.5",
+    "@types/jest": "^29.5.13",
+    "cross-env": "^7.0.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-runner-groups": "^2.2.0",
+    "rimraf": "^5.0.10",
+    "rollup": "^4.24.0",
+    "storybook": "^8.3.5",
+    "ts-jest": "^29.2.5",
+    "tslib": "^2.7.0",
+    "typescript": "^5.6.3"
+  },
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "@seven.io/counter",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seven-io/sms-counter.git"
+  },
+  "scripts": {
+    "build": "cross-env rimraf dist && npm run bundle",
+    "bundle": "cross-env NODE_ENV=prod rollup -c --bundleConfigAsCjs",
+    "dev": "rollup -c -w --bundleConfigAsCjs",
+    "prepublishOnly": "npm run build",
+    "test": "npx jest",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "types": "dist/index.d.ts",
+  "version": "1.7.0"
 }

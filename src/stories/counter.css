@@ -1,0 +1,31 @@
+@import url('https://cdn.jsdelivr.net/npm/normalize.css/normalize.min.css');
+@import url('https://cdn.jsdelivr.net/gh/kognise/water.css/dist/light.min.css');
+
+ul {
+  list-style-type: none;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+
+dt {
+  grid-column-start: 1;
+}
+
+dt, .seven-letter {
+  height: 35px;
+  width: 35px;
+}
+
+dd {
+  grid-column-start: 2;
+}
+
+.seven-letter {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  margin: 2px;
+}
