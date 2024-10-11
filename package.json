@@ -44,5 +44,5 @@
         "test": "npx jest"
     },
     "types": "dist/index.d.ts",
-    "version": "1.9.0"
+    "version": "1.10.0"
 }

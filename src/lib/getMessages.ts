@@ -90,12 +90,17 @@ export const getMessages = ({
 }
 
 function getHeaders(count: number, index: number): string[] {
+    let countHex = count.toString(16)
+    if (countHex.length === 1) countHex = `0${countHex}`
+    let indexHex = index.toString(16)
+    if (indexHex.length === 1) indexHex = `0${indexHex}`
+
     return [
         '05',
         '00',
         '03',
         'CC',
-        `0${count.toString(16)}`,
-        `0${index.toString(16)}`,
+        countHex,
+        indexHex,
     ]
 }
