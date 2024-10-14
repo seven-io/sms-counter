@@ -10,9 +10,11 @@ export const getMessageCount = (
     if (1 >= count) count = 1
     else {
         count = Number.parseFloat(String(count))
-        count = Math.floor(count)
-        count++
+        count = Math.ceil(count)
+        //count++
     }
 
-    return count
+    //console.log(`getMessageCount: ${count}`)
+
+    return Math.floor(count)
 }
