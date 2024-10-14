@@ -100,7 +100,7 @@ function getHeaders(count: number, index: number): string[] {
         '00',
         '03',
         'CC',
-        countHex,
-        indexHex,
+        countHex.toUpperCase(),
+        indexHex.toUpperCase(),
     ]
 }
